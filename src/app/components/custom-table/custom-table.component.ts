@@ -34,15 +34,4 @@ export class CustomTableComponent {
 
   @Input() rowData!: IRowData[]
   @Input() colDefs!: ColDef[]
-
-  // colDefs: ColDef[] = [
-  //   { field: 'stt'},
-  //   { field: 'model' },
-  //   { field: 'roles' },
-  //   { field: 'payment' },
-  //   { field: 'account' },
-  //   { field: 'product' },
-  //   { field: 'money' },
-  //   { field: 'operation', cellRenderer: CellButtonComponent},
-  // ];
 }
