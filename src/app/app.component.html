@@ -1,13 +1,16 @@
-<div style="display: flex;">
+<div style="display: flex">
   <div>
     <app-sidebar></app-sidebar>
   </div>
   <div style="width: 100%">
     <div>
       <app-header></app-header>
-      <tui-root>
-        <router-outlet></router-outlet>
-      </tui-root>
+      <div style="display: flex">
+        <app-menu></app-menu>
+        <tui-root>
+          <router-outlet></router-outlet>
+        </tui-root>
+      </div>
     </div>
   </div>
 </div>

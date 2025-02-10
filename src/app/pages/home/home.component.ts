@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CellButtonComponent } from 'src/app/components/cell-button/cell-button.component';
-import { IMenuData } from 'src/app/types/DataMenu';
 import { IRowData } from 'src/app/types/DataRow';
 import { type ColDef } from 'ag-grid-community';
 
@@ -123,53 +122,5 @@ export class HomeComponent {
     { field: 'product', flex: 2 },
     { field: 'money' },
     { field: 'operation', cellRenderer: CellButtonComponent },
-  ];
-
-  menuData: IMenuData[] = [
-    {
-      title: 'Danh mục',
-      listSubTitle: [
-        'Loại tiền',
-        'Mã sản phẩm',
-        'Tài khoản hoạch toán',
-        'Mã hoạch toán',
-        'Bút toán cơ bản',
-        'Bút toán chi tiết',
-      ],
-    },
-    {
-      title: 'Đọc file quyết toán',
-      listSubTitle: [
-        'Loại tiền',
-        'Mã sản phẩm',
-        'Tài khoản hoạch toán',
-        'Mã hoạch toán',
-        'Bút toán cơ bản',
-        'Bút toán chi tiết',
-      ],
-    },
-    {
-      title: 'Đối soát',
-      listSubTitle: [
-        'Loại tiền',
-        'Mã sản phẩm',
-        'Tài khoản hoạch toán',
-        'Mã hoạch toán',
-        'Bút toán cơ bản',
-        'Bút toán chi tiết',
-      ],
-    },
-    { title: 'Đối chiếu dữ liệu giao dịch' },
-    {
-      title: 'Báo cáo',
-      listSubTitle: [
-        'Loại tiền',
-        'Mã sản phẩm',
-        'Tài khoản hoạch toán',
-        'Mã hoạch toán',
-        'Bút toán cơ bản',
-        'Bút toán chi tiết',
-      ],
-    },
   ];
 }

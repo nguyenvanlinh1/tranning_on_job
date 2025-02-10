@@ -16,6 +16,10 @@ import { ExportProcessComponent } from './pages/export-process/export-process.co
 import { HomeComponent } from './pages/home/home.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { MenuComponent } from './layout/menu/menu.component';
+import { UploadComponent } from './components/upload/upload.component';
+import { CustomDownloadComponent } from './components/custom-download/custom-download.component';
+import { CustomInputComponent } from './components/custom-input/custom-input.component';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -28,9 +32,12 @@ ModuleRegistry.registerModules([AllCommunityModule]);
     ExportProcessComponent,
     HomeComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent,
+    UploadComponent,
+    CustomDownloadComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, TuiRoot, TuiIcon, TuiPagination, BrowserAnimationsModule, CustomTabsComponent, CustomTableComponent, CustomMenuComponent, TuiButton],
+  imports: [BrowserModule, AppRoutingModule, TuiRoot, TuiIcon, TuiPagination, BrowserAnimationsModule, CustomTabsComponent, CustomTableComponent, CustomMenuComponent, TuiButton, CustomInputComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

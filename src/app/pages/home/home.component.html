@@ -1,35 +1,24 @@
 <section style="display: flex; margin-top: 30px">
-  <div style="width: 100%">
-    <div style="display: flex">
-      <div style="background-color: #fff; width: 25%">
-        <div *ngFor="let item of menuData">
-          <app-custom-menu
-            [title]="item.title"
-            [dataMenu]="item.listSubTitle ?? []"
-          ></app-custom-menu>
-        </div>
+    <div
+      style="
+        width: 100%;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 20px;
+        background: #fff;
+      "
+    >
+      <div class="custom-title">Mã sản phẩm</div>
+      <div style="display: flex; justify-content: flex-end; padding: 0">
+        <app-custom-button
+          name="Thêm mới"
+          class="custom-btn-add"
+        ></app-custom-button>
       </div>
-      <div
-        style="
-          width: 100%;
-          margin: 20px;
-          padding: 20px;
-          border-radius: 20px;
-          background: #fff;
-        "
-      >
-        <div class="custom-title">Mã sản phẩm</div>
-        <div style="display: flex; justify-content: flex-end; padding: 0">
-          <app-custom-button
-            name="Thêm mới"
-            class="custom-btn-add"
-          ></app-custom-button>
-        </div>
-        <app-custom-table
-          [rowData]="rowData"
-          [colDefs]="colDefs"
-        ></app-custom-table>
-      </div>
+      <app-custom-table
+        [rowData]="rowData"
+        [colDefs]="colDefs"
+        [isPanigation]="false"
+      ></app-custom-table>
     </div>
-  </div>
 </section>

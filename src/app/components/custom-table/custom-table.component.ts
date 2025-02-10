@@ -5,7 +5,6 @@ import {
   CustomPaginationComponent,
   Size,
 } from '../custom-pagination/custom-pagination.component';
-import { IRowData } from 'src/app/types/DataRow';
 
 const myTheme = themeQuartz.withParams({
   spacing: 5,
@@ -32,6 +31,7 @@ export class CustomTableComponent {
     filter: true
   };
 
-  @Input() rowData!: IRowData[]
+  @Input() rowData!: any
   @Input() colDefs!: ColDef[]
+  @Input() isPanigation!: boolean
 }

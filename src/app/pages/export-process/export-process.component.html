@@ -1,1 +1,49 @@
-<p>export-process works!</p>
+<div style="padding: 50px">
+  <h2>Xử lý tra soát theo lô</h2>
+  <div>
+    <h3>Upload thông tin xử lý kiểm soát</h3>
+    <div style="display: grid; grid-template-columns: auto auto; gap: 20px">
+      <div style="width: 80%">
+        <app-upload></app-upload>
+      </div>
+      <div>
+        <app-custom-download title="Tải file màu"></app-custom-download>
+        <app-custom-input title="Tên file"></app-custom-input>
+        <div style="display: flex; justify-content: space-between">
+          <div></div>
+          <app-custom-button
+            name="Xử lý kiểm soát theo file"
+          ></app-custom-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px; display: flex; justify-content: space-between">
+    <div style="display: grid; grid-template-columns: auto auto">
+      <app-custom-button name="Xử lý TS thành công"></app-custom-button>
+      <app-custom-button name="Xử lý TS lỗi"></app-custom-button>
+    </div>
+    <div>
+      <app-custom-download title="Export lỗi"></app-custom-download>
+    </div>
+  </div>
+  <app-custom-table [rowData]="rowData" [colDefs]="colDefs"></app-custom-table>
+
+  <div>
+    <h3>Hồ sơ chứng từ liên quan</h3>
+    <div style="display: grid; grid-template-columns: auto auto; gap: 50px;">
+      <app-custom-input title="Hồ sơ chứng từ"></app-custom-input>
+      <app-custom-input title="Mô tả"></app-custom-input>
+    </div>
+    <app-custom-button name="Tải lên"></app-custom-button>
+  </div>
+  <app-custom-table
+    [rowData]="rowDossier"
+    [colDefs]="colDossier"
+  ></app-custom-table>
+  <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+    <app-custom-button name="Quay lại"></app-custom-button>
+    <app-custom-button name="Đẩy duyệt TL"></app-custom-button>
+  </div>
+</div>
