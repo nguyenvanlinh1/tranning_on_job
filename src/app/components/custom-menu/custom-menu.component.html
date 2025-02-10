@@ -1,0 +1,31 @@
+<tui-accordion class="custom-menu">
+  <tui-accordion-item class="custom-menu-item">
+    <tui-icon
+      icon="@tui.chevron-down"
+      [style.visibility]="
+        dataMenu && dataMenu.length > 0 ? 'visible' : 'hidden'
+      "
+      >></tui-icon
+    >
+    {{ title }}
+    <ng-template
+      tuiAccordionItemContent
+      *ngIf="dataMenu && dataMenu.length > 0"
+    >
+      <div *ngFor="let item of dataMenu">
+        <button
+          class="custom-button"
+          style="
+            border: none;
+            background-color: #fff;
+            width: 100%;
+            text-align: start;
+            padding: 6px;
+          "
+        >
+          {{ item }}
+        </button>
+      </div>
+    </ng-template>
+  </tui-accordion-item>
+</tui-accordion>

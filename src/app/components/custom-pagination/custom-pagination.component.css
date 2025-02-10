@@ -1,0 +1,16 @@
+.custom-pagination {
+  position: absolute;
+  bottom: 36px;
+  left: 35%;
+}
+
+.custom-pagination .t-button {
+  color: #009688;
+  font-size: small;
+  font-weight: 800;
+}
+
+.custom-pagination .t-button[data-appearance="primary"] {
+    background-color: #EEEEEE;
+    border-radius: 50%;
+}
