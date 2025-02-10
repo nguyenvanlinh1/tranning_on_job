@@ -12,6 +12,10 @@ import { CustomTableComponent } from "./components/custom-table/custom-table.com
 import { CustomMenuComponent } from "./components/custom-menu/custom-menu.component";
 import { CellButtonComponent } from './components/cell-button/cell-button.component';
 import { FormatDatePipe } from './components/pipe/format-date.pipe';
+import { ExportProcessComponent } from './pages/export-process/export-process.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -20,7 +24,11 @@ ModuleRegistry.registerModules([AllCommunityModule]);
     AppComponent,
     CustomButtonComponent,
     CellButtonComponent,
-    FormatDatePipe
+    FormatDatePipe,
+    ExportProcessComponent,
+    HomeComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
   imports: [BrowserModule, AppRoutingModule, TuiRoot, TuiIcon, TuiPagination, BrowserAnimationsModule, CustomTabsComponent, CustomTableComponent, CustomMenuComponent, TuiButton],
   providers: [],
