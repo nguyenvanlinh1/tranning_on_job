@@ -63,8 +63,8 @@
       icon="@tui.chevrons-right"
     />
   </div>
-  <app-custom-select></app-custom-select>
+  <app-custom-select (valueChanged)="onPageSizeChange($event)"></app-custom-select>
   <div>
-    <p><span>1</span>-<span>7</span>of<span>123455</span> items</p>
+    <p><span>1</span>-<span>{{items.length}}</span> of <span>123455</span> items</p>
   </div>
 </div>

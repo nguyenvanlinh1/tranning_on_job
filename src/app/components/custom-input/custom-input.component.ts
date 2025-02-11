@@ -16,4 +16,5 @@ export class CustomInputComponent {
   });
 
   @Input() title!: string
+  @Input() typeInput: string = "text"
 }

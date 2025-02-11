@@ -10,6 +10,7 @@ import { IExportData } from 'src/app/types/DataExportProcess';
   styleUrls: ['./export-process.component.css'],
 })
 export class ExportProcessComponent {
+
   rowData: IExportData[] = [
     {
       stt: 1,
@@ -105,22 +106,22 @@ export class ExportProcessComponent {
   ];
 
   colDefs: ColDef[] = [
-    { field: 'stt', headerName: 'STT' },
-    { field: 'idCheck', headerName: 'Mã tra soát' },
-    { field: 'idAnswer', headerName: 'Mã trả lời' },
-    { field: 'money', headerName: 'Số tiền hoàn trả' },
-    { field: 'typeMoney', headerName: 'Loại tiền hoàn trả' },
-    { field: 'idTicket', flex: 2, headerName: 'Số phiếu xử lý' },
-    { field: 'dateCreated', headerName: 'Ngày tạo phiếu xử lý' },
-    { field: 'note', headerName: 'Ghi chú xử lý' },
+    { field: 'stt', headerName: 'STT', flex: 0.5 },
+    { field: 'idCheck', headerName: 'Mã tra soát', flex: 1.5 },
+    { field: 'idAnswer', headerName: 'Mã trả lời', flex: 1.5 },
+    { field: 'money', headerName: 'Số tiền hoàn trả', valueFormatter: p => p.value.toLocaleString()},
+    { field: 'typeMoney', headerName: 'Loại tiền hoàn trả', flex: 0.5 },
+    { field: 'idTicket', flex: 1, headerName: 'Số phiếu xử lý', },
+    { field: 'dateCreated', headerName: 'Ngày tạo phiếu xử lý', flex: 1 },
+    { field: 'note', headerName: 'Ghi chú xử lý', flex: 2.5 },
   ];
 
   colDossier: ColDef[] = [
-    { field: 'stt', headerName: 'STT' },
-    { field: 'idDossier', headerName: 'Hồ sơ chứng từ' },
-    { field: 'description', headerName: 'Mô tả' },
-    { field: 'idCheck', headerName: 'Mã tra soát' },
-    { field: 'dateUpdated', headerName: 'Ngày cập nhật' },
+    { field: 'stt', headerName: 'STT', flex: 1 },
+    { field: 'idDossier', headerName: 'Hồ sơ chứng từ', flex:3 },
+    { field: 'description', headerName: 'Mô tả', flex: 3 },
+    { field: 'idCheck', headerName: 'Mã tra soát', flex: 2 },
+    { field: 'dateUpdated', headerName: 'Ngày cập nhật', flex: 2 },
     {
       field: 'download',
       headerName: 'Tải về',
@@ -128,6 +129,7 @@ export class ExportProcessComponent {
       cellRendererParams: {
         listIcon: ['@tui.download'],
       },
+      flex: 1
     },
     {
       field: 'delete',
@@ -136,6 +138,7 @@ export class ExportProcessComponent {
       cellRendererParams: {
         listIcon: ['@tui.trash-2'],
       },
+      flex: 1
     },
   ];
 }

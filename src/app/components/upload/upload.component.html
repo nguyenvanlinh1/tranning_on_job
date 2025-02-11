@@ -5,6 +5,7 @@
     border-radius: 10px;
     text-align: center;
   "
+  *ngIf="!isDisplayData"
 >
   <tui-icon
     icon="@tui.cloud-download"
@@ -13,6 +14,22 @@
   <p>Kéo thả file vào đấy</p>
   <p>hoặc</p>
   <div style="width: 100px; margin: 0 auto">
-    <app-custom-button name="Chọn file"></app-custom-button>
+    <app-custom-button
+      name="Chọn file"
+      [canInput]="true"
+      (data)="onHandleData($event)"
+    ></app-custom-button>
+  </div>
+</div>
+<div *ngIf="isDisplayData">
+  <div style="display: flex; justify-content: center">
+    <img [src]="data" style="width: 200px; height: 200px" />
+  </div>
+  <div style="width: 100px; margin: 0 auto">
+    <app-custom-button
+      name="Chọn file"
+      [canInput]="true"
+      (data)="onHandleData($event)"
+    ></app-custom-button>
   </div>
 </div>

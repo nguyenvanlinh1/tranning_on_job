@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class UploadComponent {
 
+  isDisplayData = false;
+  data: any
+
+  onHandleData(file: File) {
+    this.isDisplayData = true;
+    this.data = URL.createObjectURL(file);
+  }
 }

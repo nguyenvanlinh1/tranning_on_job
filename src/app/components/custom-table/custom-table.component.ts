@@ -23,8 +23,8 @@ const myTheme = themeQuartz.withParams({
 export class CustomTableComponent {
   Size = Size;
   theme = myTheme;
-  // pagination = true;
-  // paginationPageSize = 7;
+  pagination: boolean = true;
+  paginationPageSize: number = 7;
   // paginationPageSizeSelector = [7, 14, 21];
 
   defaultColDef: ColDef = {
@@ -35,4 +35,9 @@ export class CustomTableComponent {
   @Input() rowData!: any
   @Input() colDefs!: ColDef[]
   @Input() isPanigation!: boolean
+
+
+  onPaginationSizeChange(newSize: number) {
+    this.paginationPageSize = newSize;
+  }
 }
