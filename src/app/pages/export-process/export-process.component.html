@@ -19,16 +19,16 @@
     </div>
   </div>
 
-  <div style="margin-top: 20px; display: flex; justify-content: space-between">
-    <div style="display: grid; grid-template-columns: auto auto">
+  <div style="margin-top: 20px; display: grid; grid-template-columns: 50% 50%;">
+    <div style="display: grid; grid-template-columns: 50% 50%">
       <app-custom-button name="Xử lý TS thành công"></app-custom-button>
       <app-custom-button name="Xử lý TS lỗi"></app-custom-button>
     </div>
-    <div>
+    <div style="text-align: end;">
       <app-custom-download title="Export lỗi"></app-custom-download>
     </div>
   </div>
-  <app-custom-table [rowData]="rowData" [colDefs]="colDefs"></app-custom-table>
+  <app-custom-table [rowData]="rowData" [colDefs]="colDefs" [isPanigation]="true"></app-custom-table>
 
   <div>
     <h3>Hồ sơ chứng từ liên quan</h3>
@@ -36,11 +36,14 @@
       <app-custom-input title="Hồ sơ chứng từ"></app-custom-input>
       <app-custom-input title="Mô tả"></app-custom-input>
     </div>
-    <app-custom-button name="Tải lên"></app-custom-button>
+    <div style="width: 100px; margin: 20px 0px;">
+      <app-custom-button name="Tải lên"></app-custom-button>
+    </div>
   </div>
   <app-custom-table
     [rowData]="rowDossier"
     [colDefs]="colDossier"
+    [isPanigation]="false"
   ></app-custom-table>
   <div style="margin-top: 20px; display: flex; justify-content: space-between;">
     <app-custom-button name="Quay lại"></app-custom-button>

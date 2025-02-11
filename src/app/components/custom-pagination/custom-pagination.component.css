@@ -1,8 +1,8 @@
-.custom-pagination {
+/* .custom-pagination {
   position: absolute;
   bottom: 36px;
   left: 35%;
-}
+} */
 
 .custom-pagination .t-button {
   color: #009688;
@@ -14,3 +14,9 @@
     background-color: #EEEEEE;
     border-radius: 50%;
 }
+
+tui-icon:after, tui-icon[tuiIcons]:after {
+  background-color: #EEEEEE;
+}
+
+

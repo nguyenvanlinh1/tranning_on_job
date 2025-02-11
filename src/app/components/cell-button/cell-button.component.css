@@ -7,3 +7,7 @@ button {
 .custom-icon {
     font-size: 14px;
 }
+
+tui-icon:after, tui-icon[tuiIcons]:after {
+  background-color: #009688;
+}

@@ -1,6 +1,16 @@
-<button>
+<!-- <button>
     <tui-icon icon="@tui.square-pen" class="custom-icon"></tui-icon>
 </button>
 <button>
     <tui-icon icon="@tui.trash-2" class="custom-icon"></tui-icon>
-</button>
+</button> -->
+
+<div style="display: flex; gap: 8px; align-items: center; justify-items: center; height: 100%;">
+  <button *ngFor="let item of listIcon">
+    <tui-icon [icon]="item" class="custom-icon"></tui-icon>
+  </button>
+</div>
+
+
+
+

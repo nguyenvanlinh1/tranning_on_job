@@ -8,11 +8,11 @@ import { ExportProcessComponent } from './pages/export-process/export-process.co
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  // {
+  //   path: '', component: AppComponent, pathMatch: 'full'
+  // },
   {
-    path: '', component: AppComponent, pathMatch: 'full'
-  },
-  {
-    path: 'home', component: HomeComponent
+    path: '', component: HomeComponent
   },
   {
     path: 'table', component: CustomTableComponent

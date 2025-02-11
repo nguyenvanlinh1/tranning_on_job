@@ -1,0 +1,7 @@
+<form style="display: flex; align-items: center; width: 100%;">
+  <tui-select tuiTextfieldSize="s" [formControl]="testValue" style="width: 65px;">
+    <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+  </tui-select>
+  <tui-icon icon="@tui.chevron-down" [style.color]="'var(--tui-background-accent-1)'"></tui-icon>
+  items per page
+</form>

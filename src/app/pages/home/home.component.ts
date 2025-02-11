@@ -121,6 +121,8 @@ export class HomeComponent {
     { field: 'account' },
     { field: 'product', flex: 2 },
     { field: 'money' },
-    { field: 'operation', cellRenderer: CellButtonComponent },
+    { field: 'operation', cellRenderer: CellButtonComponent, cellRendererParams: {
+      listIcon: ['@tui.square-pen', '@tui.trash-2']
+    }},
   ];
 }

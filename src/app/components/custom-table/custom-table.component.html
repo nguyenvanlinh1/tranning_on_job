@@ -3,11 +3,13 @@
   [columnDefs]="colDefs"
   class="ag-theme"
   [defaultColDef]="defaultColDef"
-  [pagination]="pagination"
-  [paginationPageSize]="7"
-  [paginationPageSizeSelector]="paginationPageSizeSelector"
   [theme]="theme"
-  [suppressPaginationPanel]="!isPanigation"
 >
 </ag-grid-angular>
-<!-- <app-custom-pagination [index]="2" [length]="10"></app-custom-pagination> -->
+<div *ngIf="isPanigation">
+  <app-custom-pagination [index]="2" [length]="10"></app-custom-pagination>
+</div>
+
+<!-- [pagination]="pagination"
+[paginationPageSize]="7"
+[paginationPageSizeSelector]="paginationPageSizeSelector" -->

@@ -47,3 +47,7 @@ button.custom-button:hover::before {
   border-radius: 0px !important;
   padding: 0;
 }
+
+tui-icon:after, tui-icon[tuiIcons]:after {
+  background-color: #000;
+}

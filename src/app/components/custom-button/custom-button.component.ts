@@ -8,4 +8,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class CustomButtonComponent{
   @Input() name!: string
+  @Input() icon!: any
 }

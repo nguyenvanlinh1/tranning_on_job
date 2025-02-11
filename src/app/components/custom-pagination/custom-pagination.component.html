@@ -1,6 +1,70 @@
-<tui-pagination
-  class="custom-pagination"
-  [index]="index"
-  [length]="length"
-  (indexChange)="goToPage($event)"
-/>
+<div
+  style="
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  "
+>
+  <!-- <div>
+    <tui-pagination
+      class="custom-pagination"
+      [index]="index"
+      [length]="length"
+      (indexChange)="goToPage($event)"
+    />
+  </div> -->
+  <div style="display: flex">
+    <tui-icon
+      icon="@tui.chevrons-left"
+    />
+    <tui-icon
+      icon="@tui.chevron-left"
+    />
+    <div style="display: flex; gap: 2px">
+      <div
+        *ngFor="let item of items.slice(0, 5)"
+        [ngStyle]="{
+          'border-radius': '50%',
+          'background-color': '#eee',
+          color: '#009688',
+          'font-weight': '800',
+          width: '30px',
+          height: '30px',
+          display: 'flex',
+          'align-items': 'center',
+          'justify-content': 'center'
+        }"
+      >
+        {{ item }}
+      </div>
+      <div
+        *ngIf="items.length > 5"
+        style="
+          border-radius: 50%;
+          background-color: #eee;
+          color: #009688;
+          font-weight: 800;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        ...
+      </div>
+    </div>
+    <tui-icon
+      icon="@tui.chevron-right"
+    />
+    <tui-icon
+      icon="@tui.chevrons-right"
+    />
+  </div>
+  <app-custom-select></app-custom-select>
+  <div>
+    <p><span>1</span>-<span>7</span>of<span>123455</span> items</p>
+  </div>
+</div>

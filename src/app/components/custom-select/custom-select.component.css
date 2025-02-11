@@ -1,9 +1,9 @@
-h3,
-h2 {
-  color: #009688;
-}
-
 tui-icon:after,
 tui-icon[tuiIcons]:after {
   background-color: #009688;
+}
+
+tui-select {
+  border: none !important;
+  box-shadow: none !important;
 }

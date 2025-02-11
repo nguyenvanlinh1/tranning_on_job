@@ -1,0 +1,4 @@
+tui-icon:after,
+tui-icon[tuiIcons]:after {
+  background-color: #000;
+}
