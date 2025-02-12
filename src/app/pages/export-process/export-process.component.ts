@@ -9,7 +9,17 @@ import { IExportData } from 'src/app/types/DataExportProcess';
   templateUrl: './export-process.component.html',
   styleUrls: ['./export-process.component.css'],
 })
+
 export class ExportProcessComponent {
+  
+  HANDLE_TS_SUCCESS = 1
+  HANDLE_TS_FAIL = 2
+
+  selectedButton: number | null= null;
+
+  selectButton(buttonNumber: number) {
+    this.selectedButton = buttonNumber;
+  }  
 
   rowData: IExportData[] = [
     {
@@ -74,6 +84,16 @@ export class ExportProcessComponent {
     },
     {
       stt: 7,
+      idCheck: '9704180420496706',
+      idAnswer: '301 - Hoàn trả tra soát toàn phần',
+      money: 100000000,
+      typeMoney: 'VND',
+      idTicket: '2463574684678',
+      dateCreated: '05/10/2024',
+      note: 'TTCSKH + PYC 1012319200 + 45 NGAY LAM VIEC GIAO DICH KHONG THANH CONG...',
+    },
+    {
+      stt: 8,
       idCheck: '9704180420496706',
       idAnswer: '301 - Hoàn trả tra soát toàn phần',
       money: 100000000,

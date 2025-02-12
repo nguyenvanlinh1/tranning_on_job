@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class CustomDownloadComponent {
 
   @Input() title!: string
+  @Input() click!: any
 }

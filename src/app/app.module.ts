@@ -26,7 +26,6 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 @NgModule({
   declarations: [
     AppComponent,
-    CustomButtonComponent,
     CellButtonComponent,
     FormatDatePipe,
     ExportProcessComponent,
@@ -37,7 +36,7 @@ ModuleRegistry.registerModules([AllCommunityModule]);
     UploadComponent,
     CustomDownloadComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, TuiRoot, TuiIcon, TuiPagination, BrowserAnimationsModule, CustomTabsComponent, CustomTableComponent, CustomMenuComponent, TuiButton, CustomInputComponent],
+  imports: [BrowserModule, AppRoutingModule, TuiRoot, TuiIcon, TuiPagination, BrowserAnimationsModule, CustomTabsComponent, CustomTableComponent, CustomMenuComponent, TuiButton, CustomInputComponent, CustomButtonComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

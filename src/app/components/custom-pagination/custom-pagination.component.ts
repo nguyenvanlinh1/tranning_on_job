@@ -6,10 +6,9 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { TuiPagination } from '@taiga-ui/kit';
 import { CustomSelectComponent } from '../custom-select/custom-select.component';
 import { TuiIcon } from '@taiga-ui/core';
-import { NgFor, NgIf, NgStyle } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 
 export enum Size {
   S = 's',
@@ -21,7 +20,14 @@ export enum Size {
   selector: 'app-custom-pagination',
   templateUrl: './custom-pagination.component.html',
   styleUrls: ['./custom-pagination.component.css'],
-  imports: [CustomSelectComponent, TuiIcon, NgFor, NgIf, NgStyle],
+  imports: [
+    CustomSelectComponent,
+    TuiIcon,
+    NgFor,
+    NgIf,
+    NgStyle,
+    NgClass
+  ],
   standalone: true,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,19 +38,46 @@ export class CustomPaginationComponent {
   @Input() index!: number;
 
   totalValue!: string;
+  items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  items = [1, 2, 3, 4, 5, 6, 7];
+  selectedIndex: number = 0; // Lưu vị trí button được chọn
+  selectButton(index: number) {
+    this.selectedIndex = index;
+    this.pageValue.emit(this.selectedIndex)
+  }
+  @Output() pageValue =  new EventEmitter()
+
+  onNextButton(){
+    if(this.selectedIndex >= this.items.length) return
+    this.selectedIndex += 1
+    this.pageValue.emit(this.selectedIndex)
+  }
+  onPrevButton(){
+    if(this.selectedIndex < 0) return
+    this.selectedIndex -= 1
+    this.pageValue.emit(this.selectedIndex)
+  }
+  onStartButton(){
+    this.selectedIndex = 0
+    this.pageValue.emit(this.selectedIndex)
+  }
+  onEndButton(){
+    this.selectedIndex = this.items.length - 1
+    this.pageValue.emit(this.selectedIndex)
+  }
+
+  getSliceRange() {
+    if(this.selectedIndex > this.items.length-5){
+      const start = this.items.length - 5;
+      return start
+    }
+    return this.selectedIndex
+  }
+
 
   @Output() valueChanged = new EventEmitter<number>();
 
-  // @Input() size!: Size;
-
-  goToPage(index: number): void {
-    this.index = index;
-  }
-
   onPageSizeChange(newSize: number): void {
     this.items = Array.from({ length: newSize }, (_, i) => i + 1);
-    this.valueChanged.emit(newSize);
   }
 }

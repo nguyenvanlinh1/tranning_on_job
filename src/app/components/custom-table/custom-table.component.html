@@ -10,7 +10,7 @@
 >
 </ag-grid-angular>
 <div *ngIf="isPanigation">
-  <app-custom-pagination [index]="2" [length]="10" (valueChanged)="onPaginationSizeChange($event)"></app-custom-pagination>
+  <app-custom-pagination [index]="2" [length]="10" (valueChanged)="onPaginationSizeChange($event)" (pageValue)="onPanigationPage($event)"></app-custom-pagination>
 </div>
 
 <!-- [pagination]="pagination"

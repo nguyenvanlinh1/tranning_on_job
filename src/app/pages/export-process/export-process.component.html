@@ -1,9 +1,11 @@
-<div style="padding: 50px">
-  <h2>Xử lý tra soát theo lô</h2>
+<div style="padding: 0 50px">
+  <h2 style="color: #000; border-bottom: 1px solid #e0e0e0; padding: 10px 0">
+    Xử lý tra soát theo lô
+  </h2>
   <div>
     <h3>Upload thông tin xử lý kiểm soát</h3>
     <div style="display: grid; grid-template-columns: 50% 50%; gap: 20px">
-      <div style="width: 80%;">
+      <div style="width: 80%">
         <app-upload></app-upload>
       </div>
       <div>
@@ -19,24 +21,42 @@
     </div>
   </div>
 
-  <div style="margin-top: 20px; display: grid; grid-template-columns: 50% 50%;">
+  <div style="margin-top: 20px; display: grid; grid-template-columns: 50% 50%">
     <div style="display: grid; grid-template-columns: 50% 50%">
-      <app-custom-button name="Xử lý TS thành công"></app-custom-button>
-      <app-custom-button name="Xử lý TS lỗi"></app-custom-button>
+      <app-custom-button
+        name="Xử lý TS thành công"
+        [selected]="selectedButton === HANDLE_TS_SUCCESS"
+        (clicked)="selectButton(HANDLE_TS_SUCCESS)"
+      >
+      </app-custom-button>
+
+      <app-custom-button
+        name="Xử lý TS lỗi"
+        [selected]="selectedButton === HANDLE_TS_FAIL"
+        (clicked)="selectButton(HANDLE_TS_FAIL)"
+      >
+      </app-custom-button>
     </div>
-    <div style="text-align: end;">
+    <div style="text-align: end">
       <app-custom-download title="Export lỗi"></app-custom-download>
     </div>
   </div>
-  <app-custom-table [rowData]="rowData" [colDefs]="colDefs" [isPanigation]="true"></app-custom-table>
-
+  <app-custom-table
+    [rowData]="rowData"
+    [colDefs]="colDefs"
+    [isPanigation]="true"
+  ></app-custom-table>
+  <hr style="margin: 30px 0px;">
   <div>
     <h3>Hồ sơ chứng từ liên quan</h3>
-    <div style="display: grid; grid-template-columns: auto auto; gap: 50px;">
-      <app-custom-input title="Hồ sơ chứng từ" typeInput="file"></app-custom-input>
+    <div style="display: grid; grid-template-columns: auto auto; gap: 50px">
+      <app-custom-input
+        title="Hồ sơ chứng từ"
+        typeInput="file"
+      ></app-custom-input>
       <app-custom-input title="Mô tả"></app-custom-input>
     </div>
-    <div style="width: 100px; margin: 20px 0px;">
+    <div style="width: 100px; margin: 20px 0px">
       <app-custom-button name="Tải lên"></app-custom-button>
     </div>
   </div>
@@ -45,7 +65,7 @@
     [colDefs]="colDossier"
     [isPanigation]="false"
   ></app-custom-table>
-  <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+  <div style="margin-top: 20px; display: flex; justify-content: space-between">
     <app-custom-button name="Quay lại"></app-custom-button>
     <app-custom-button name="Đẩy duyệt TL"></app-custom-button>
   </div>

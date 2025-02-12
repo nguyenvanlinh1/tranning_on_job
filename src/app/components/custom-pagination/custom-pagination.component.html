@@ -16,34 +16,54 @@
     />
   </div> -->
   <div style="display: flex">
-    <tui-icon
-      icon="@tui.chevrons-left"
-    />
-    <tui-icon
-      icon="@tui.chevron-left"
-    />
+    <tui-icon icon="@tui.chevrons-left" (click)="onStartButton()" />
+    <tui-icon icon="@tui.chevron-left" (click)="onPrevButton()" />
     <div style="display: flex; gap: 2px">
       <div
-        *ngFor="let item of items.slice(0, 5)"
+        *ngIf="selectedIndex > 0"
+        style="
+          border-radius: 50%;
+          color: #009688;
+          font-weight: 800;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        ...
+      </div>
+      <div
+        *ngFor="let item of items.slice(getSliceRange(), selectedIndex + 5); let i = index"
+        [ngClass]="{ selected: selectedIndex === i + getSliceRange()}"
+        (click)="selectButton(i+getSliceRange())"
         [ngStyle]="{
           'border-radius': '50%',
-          'background-color': '#eee',
-          color: '#009688',
-          'font-weight': '800',
           width: '30px',
           height: '30px',
           display: 'flex',
           'align-items': 'center',
-          'justify-content': 'center'
+          'justify-content': 'center',
         }"
       >
-        {{ item }}
+        <button
+          style="
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: #009688;
+            font-weight: 600;
+          "
+        >
+          {{ item }}
+        </button>
       </div>
       <div
-        *ngIf="items.length > 5"
+        *ngIf="selectedIndex < items.length-5"
         style="
           border-radius: 50%;
-          background-color: #eee;
           color: #009688;
           font-weight: 800;
           width: 30px;
@@ -56,15 +76,16 @@
         ...
       </div>
     </div>
-    <tui-icon
-      icon="@tui.chevron-right"
-    />
-    <tui-icon
-      icon="@tui.chevrons-right"
-    />
+    <tui-icon icon="@tui.chevron-right" (click)="onNextButton()" />
+    <tui-icon icon="@tui.chevrons-right" (click)="onEndButton()" />
   </div>
-  <app-custom-select (valueChanged)="onPageSizeChange($event)"></app-custom-select>
+  <app-custom-select
+    (valueChanged)="onPageSizeChange($event)"
+  ></app-custom-select>
   <div>
-    <p><span>1</span>-<span>{{items.length}}</span> of <span>123455</span> items</p>
+    <p>
+      <span>1</span>-<span>{{ items.length }}</span> of
+      <span>123455</span> items
+    </p>
   </div>
 </div>

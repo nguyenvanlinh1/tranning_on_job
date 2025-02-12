@@ -16,7 +16,13 @@
 }
 
 tui-icon:after, tui-icon[tuiIcons]:after {
-  background-color: #EEEEEE;
+  background-color: #E0E0E0;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #E0E0E0; 
+  color: white !important;
 }
 
 

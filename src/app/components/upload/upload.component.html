@@ -1,35 +1,40 @@
 <div
   style="
-    padding: 20px 80px;
-    border: 1px solid #333;
-    border-radius: 10px;
+    padding: 30px 80px;
+    border: 2px dotted #333;
+    border-radius: 20px;
     text-align: center;
+    height: 160px;
   "
-  *ngIf="!isDisplayData"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave()"
+  (drop)="onDrop($event)"
 >
-  <tui-icon
-    icon="@tui.cloud-download"
-    [style.color]="'var(--tui-background-accent-1)'"
-  />
-  <p>Kéo thả file vào đấy</p>
-  <p>hoặc</p>
-  <div style="width: 100px; margin: 0 auto">
-    <app-custom-button
-      name="Chọn file"
-      [canInput]="true"
-      (data)="onHandleData($event)"
-    ></app-custom-button>
+  <div *ngIf="!isDisplayData">
+    <tui-icon
+      icon="@tui.cloud-download"
+      [style.color]="'var(--tui-background-accent-1)'"
+    />
+    <p>Kéo thả file vào đấy</p>
+    <p>hoặc</p>
+    <div style="width: 100px; margin: 0 auto">
+      <app-custom-button
+        name="Chọn file"
+        [canInput]="true"
+        (data)="onHandleData($event)"
+      ></app-custom-button>
+    </div>
   </div>
-</div>
-<div *ngIf="isDisplayData">
-  <div style="display: flex; justify-content: center">
-    <img [src]="data" style="width: 200px; height: 200px" />
-  </div>
-  <div style="width: 100px; margin: 0 auto">
-    <app-custom-button
-      name="Chọn file"
-      [canInput]="true"
-      (data)="onHandleData($event)"
-    ></app-custom-button>
+  <div *ngIf="isDisplayData">
+    <div style="display: flex; justify-content: center">
+      <img [src]="data" width="100%" height="150px" style="object-fit: contain;"/>
+    </div>
+    <div style="width: 100px; margin: 0 auto;">
+      <app-custom-button
+        name="Chọn file"
+        [canInput]="true"
+        (data)="onHandleData($event)"
+      ></app-custom-button>
+    </div>
   </div>
 </div>

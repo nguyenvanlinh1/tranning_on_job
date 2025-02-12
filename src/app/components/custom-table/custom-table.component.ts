@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { themeQuartz, type ColDef } from 'ag-grid-community';
 import {
@@ -25,6 +25,7 @@ export class CustomTableComponent {
   theme = myTheme;
   pagination: boolean = true;
   paginationPageSize: number = 7;
+  @ViewChild(AgGridAngular, {static: false}) agGrid!: AgGridAngular;
   // paginationPageSizeSelector = [7, 14, 21];
 
   defaultColDef: ColDef = {
@@ -39,5 +40,12 @@ export class CustomTableComponent {
 
   onPaginationSizeChange(newSize: number) {
     this.paginationPageSize = newSize;
+  }
+
+  onPanigationPage(newPage: number) {
+    const gridApi = this.agGrid?.api;
+    if (gridApi) {
+      gridApi.paginationGoToPage(newPage)
+    }
   }
 }
