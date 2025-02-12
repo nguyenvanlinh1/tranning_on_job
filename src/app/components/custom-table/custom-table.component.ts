@@ -26,7 +26,6 @@ export class CustomTableComponent {
   pagination: boolean = true;
   paginationPageSize: number = 7;
   @ViewChild(AgGridAngular, {static: false}) agGrid!: AgGridAngular;
-  // paginationPageSizeSelector = [7, 14, 21];
 
   defaultColDef: ColDef = {
     flex: 1,
@@ -38,7 +37,7 @@ export class CustomTableComponent {
   @Input() isPanigation!: boolean
 
 
-  onPaginationSizeChange(newSize: number) {
+  onPaginationSizeChange(newSize: any) {
     this.paginationPageSize = newSize;
   }
 

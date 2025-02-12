@@ -48,6 +48,26 @@ button.custom-button:hover::before {
   padding: 0;
 }
 
-tui-icon:after, tui-icon[tuiIcons]:after {
-  background-color: #000;
+.custom-chevron::after {
+  background-color: #000 !important;
+  cursor: pointer;
+}
+
+.t-content[_ngcontent-ng-c1705191575] {
+  padding: 0 25px !important;
+}
+
+.t-wrapper[_ngcontent-ng-c1705191575]:after {
+  border: none !important;
+}
+
+._has-arrow[_nghost-ng-c1705191575] .t-title[_ngcontent-ng-c1705191575] {
+  margin-right: .5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+
+.t-header[_ngcontent-ng-c1705191575] {
+  padding: 0 !important;
 }

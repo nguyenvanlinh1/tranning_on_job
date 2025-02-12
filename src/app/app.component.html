@@ -1,16 +1,16 @@
-<div style="display: flex">
-  <div>
-    <app-sidebar></app-sidebar>
-  </div>
-  <div style="width: 100%">
-    <div>
+<tui-root>
+  <div style="display: flex; background: #e8eaf6">
+    <div style="background-color: #009688">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div style="width: 100%">
       <app-header></app-header>
-      <div style="display: flex">
-        <app-menu></app-menu>
-        <tui-root>
+      <div style="display: flex; margin: 30px 30px 30px 0; gap: 20px">
+        <app-menu style="width: 20%;"></app-menu>
+        <div style="width: 80%;">
           <router-outlet></router-outlet>
-        </tui-root>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</tui-root>

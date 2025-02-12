@@ -1,34 +1,23 @@
-<p>{{ title }}</p>
-<form [formGroup]="testForm">
-  <tui-input formControlName="testValue">
-    <ng-container *ngIf="typeInput !== 'file'">
-      <input
-        tuiTextfieldLegacy
-        [type]="typeInput"
-        style="
-          width: 100%;
-          margin-bottom: 10px;
-          padding: 3px;
-          border-radius: 5px;
-        "
-      />
-    </ng-container>
-    <ng-container *ngIf="typeInput === 'file'">
-      <div
-        style="
-          width: 100%;
-          cursor: pointer;
-          width: 100%;
-          margin-bottom: 10px;
-          padding: 2px;
-          border-radius: 5px;
-          border: 1px solid #000;
-        "
-        (click)="openFileDialog()"
-      >
-        Chọn tệp
-      </div>
-      <input #fileInput type="file" id="file" hidden />
-    </ng-container>
-  </tui-input>
-</form>
+<div style="width: 100%;">
+  <p>{{ title }}</p>
+  <form [formGroup]="testForm">
+    <tui-input formControlName="testValue" style="width: 100%;">
+      <ng-container *ngIf="typeInput !== 'file'">
+        <input
+          tuiTextfieldLegacy
+          [type]="typeInput"
+          style="width: 100%; box-sizing: border-box; padding: 3px; border-radius: 5px;"
+        />
+      </ng-container>
+      <ng-container *ngIf="typeInput === 'file'">
+        <div
+          style="cursor: pointer; margin-bottom: 10px; padding: 2px; border-radius: 5px; border: 1px solid #000; width: 100%; background-color: #fff;"
+          (click)="openFileDialog()"
+        >
+          Chọn tệp
+        </div>
+        <input #fileInput tuiTextfieldLegacy type="file" id="file" hidden />
+      </ng-container>
+    </tui-input>
+  </form>
+</div>

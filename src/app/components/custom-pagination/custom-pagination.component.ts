@@ -79,5 +79,6 @@ export class CustomPaginationComponent {
 
   onPageSizeChange(newSize: number): void {
     this.items = Array.from({ length: newSize }, (_, i) => i + 1);
+    this.valueChanged.emit(newSize)
   }
 }

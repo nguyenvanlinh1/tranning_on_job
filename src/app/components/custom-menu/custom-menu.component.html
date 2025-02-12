@@ -1,13 +1,14 @@
 <tui-accordion class="custom-menu">
   <tui-accordion-item class="custom-menu-item">
+    {{ title }}
     <tui-icon
       icon="@tui.chevron-down"
+      class="custom-chevron"
       [style.visibility]="
         dataMenu && dataMenu.length > 0 ? 'visible' : 'hidden'
       "
-      >></tui-icon
+      ></tui-icon
     >
-    {{ title }}
     <ng-template
       tuiAccordionItemContent
       *ngIf="dataMenu && dataMenu.length > 0"
@@ -17,7 +18,7 @@
           class="custom-button"
           style="
             border: none;
-            background-color: #fff;
+            background-color: #e8eaf6;
             width: 100%;
             text-align: start;
             padding: 6px;

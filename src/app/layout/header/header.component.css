@@ -1,4 +1,8 @@
-tui-icon:after,
-tui-icon[tuiIcons]:after {
+.custom-menu::after {
+  background-color: #000;
+  cursor: pointer;
+}
+
+.custom-flower::after {
   background-color: #FFEB3B;
 }

@@ -17,9 +17,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { MenuComponent } from './layout/menu/menu.component';
-import { UploadComponent } from './components/upload/upload.component';
 import { CustomDownloadComponent } from './components/custom-download/custom-download.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
+import { UploadComponent } from './components/custom-upload/upload.component';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
