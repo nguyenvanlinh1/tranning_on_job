@@ -19,6 +19,8 @@ export class CustomButtonComponent{
 
   // click thay đổi background
   @Input() selected: boolean = false;
+  @Input() isBtnSpecLeft: boolean = false;
+  @Input() isBtnSpecRight: boolean = false;
   @Output() clicked = new EventEmitter<void>();
 
   @ViewChild('fileInput') fileInput!: ElementRef;

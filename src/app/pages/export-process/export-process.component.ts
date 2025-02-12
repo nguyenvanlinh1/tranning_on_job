@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { type ColDef } from 'ag-grid-community';
 import { CellButtonComponent } from 'src/app/components/cell-button/cell-button.component';
+import { HANDLE_TS_FAIL, HANDLE_TS_SUCCESS } from 'src/app/constant/common';
 import { IDossierData } from 'src/app/types/DataDossier';
 import { IExportData } from 'src/app/types/DataExportProcess';
 
@@ -12,8 +13,8 @@ import { IExportData } from 'src/app/types/DataExportProcess';
 
 export class ExportProcessComponent {
   
-  HANDLE_TS_SUCCESS = 1
-  HANDLE_TS_FAIL = 2
+  handleTsSuccess = HANDLE_TS_SUCCESS
+  handleTsFail = HANDLE_TS_FAIL
 
   selectedButton: number | null= null;
 

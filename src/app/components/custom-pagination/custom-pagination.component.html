@@ -35,7 +35,7 @@
         ...
       </div>
       <div
-        *ngFor="let item of items.slice(getSliceRange(), selectedIndex + 5); let i = index"
+        *ngFor="let item of items.slice(getSliceRange(), selectedIndex + totalItemsPanigation); let i = index"
         [ngClass]="{ selected: selectedIndex === i + getSliceRange()}"
         (click)="selectButton(i+getSliceRange())"
         [ngStyle]="{

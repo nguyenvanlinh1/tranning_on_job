@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { themeQuartz, type ColDef } from 'ag-grid-community';
 import {
@@ -6,6 +6,7 @@ import {
   Size,
 } from '../custom-pagination/custom-pagination.component';
 import { NgIf } from '@angular/common';
+import { DEFAULT_PAGE_SIZE } from 'src/app/constant/common';
 
 const myTheme = themeQuartz.withParams({
   spacing: 5,
@@ -24,7 +25,7 @@ export class CustomTableComponent {
   Size = Size;
   theme = myTheme;
   pagination: boolean = true;
-  paginationPageSize: number = 7;
+  paginationPageSize: number = DEFAULT_PAGE_SIZE;
   @ViewChild(AgGridAngular, {static: false}) agGrid!: AgGridAngular;
 
   defaultColDef: ColDef = {

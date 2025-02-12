@@ -9,6 +9,7 @@ import {
 import { CustomSelectComponent } from '../custom-select/custom-select.component';
 import { TuiIcon } from '@taiga-ui/core';
 import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
+import { TOTAL_ITEMS_PANIGATION } from 'src/app/constant/common';
 
 export enum Size {
   S = 's',
@@ -33,9 +34,12 @@ export enum Size {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomPaginationComponent {
+
   @Input() length!: number;
 
   @Input() index!: number;
+
+  totalItemsPanigation = TOTAL_ITEMS_PANIGATION
 
   totalValue!: string;
   items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -67,8 +71,8 @@ export class CustomPaginationComponent {
   }
 
   getSliceRange() {
-    if(this.selectedIndex > this.items.length-5){
-      const start = this.items.length - 5;
+    if(this.selectedIndex > this.items.length - this.totalItemsPanigation){
+      const start = this.items.length - this.totalItemsPanigation;
       return start
     }
     return this.selectedIndex

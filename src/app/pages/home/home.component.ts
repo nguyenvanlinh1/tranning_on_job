@@ -9,7 +9,6 @@ import { type ColDef } from 'ag-grid-community';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  items = [1, 2, 3, 4, 5];
   rowData: IRowData[] = [
     {
       stt: 1,

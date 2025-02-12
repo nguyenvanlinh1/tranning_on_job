@@ -3,7 +3,7 @@
   size="s"
   type="button"
   style="color: #009688; font-weight: 600; border: 1px solid #009688; width: 100%; border-radius: 10px; height: 32px; cursor: pointer;"
-  [ngClass]="{ 'active': selected }"
+  [ngClass]="{ 'active': selected, 'btn-spec-left': isBtnSpecLeft, 'btn-spec-right': isBtnSpecRight }"
   (click)="openFileDialog()"
 >
   <ng-template>

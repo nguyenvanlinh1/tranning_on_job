@@ -1,3 +1,13 @@
 .active {
   background-color: #80cbc4 !important;
 }
+
+.btn-spec-left {
+  border-radius: 0 !important;
+  border-top-left-radius: 10px !important;
+}
+
+.btn-spec-right {
+  border-radius: 0 !important;
+  border-top-right-radius: 10px !important;
+}

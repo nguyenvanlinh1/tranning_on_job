@@ -11,7 +11,7 @@
       <div style="width: 100%">
         <app-custom-download title="Tải file màu"></app-custom-download>
         <app-custom-input title="Tên file"></app-custom-input>
-        <div style="display: flex; justify-content: space-between">
+        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
           <div></div>
           <app-custom-button
             name="Xử lý kiểm soát theo file"
@@ -25,15 +25,17 @@
     <div style="display: grid; grid-template-columns: 50% 50%">
       <app-custom-button
         name="Xử lý TS thành công"
-        [selected]="selectedButton === HANDLE_TS_SUCCESS"
-        (clicked)="selectButton(HANDLE_TS_SUCCESS)"
+        [selected]="selectedButton === handleTsSuccess"
+        (clicked)="selectButton(handleTsSuccess)"
+        [isBtnSpecLeft]="true"
       >
       </app-custom-button>
 
       <app-custom-button
         name="Xử lý TS lỗi"
-        [selected]="selectedButton === HANDLE_TS_FAIL"
-        (clicked)="selectButton(HANDLE_TS_FAIL)"
+        [selected]="selectedButton === handleTsFail"
+        (clicked)="selectButton(handleTsFail)"
+        [isBtnSpecRight]="true"
       >
       </app-custom-button>
     </div>
