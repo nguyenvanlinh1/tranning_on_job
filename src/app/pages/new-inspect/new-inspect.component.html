@@ -1,0 +1,135 @@
+<div style="padding: 10px 50px; border-radius: 20px; background-color: #fff">
+  <h2 style="color: #000; border-bottom: 2px solid #e0e0e0; padding: 10px">
+    Tạo mới tra soát
+  </h2>
+  <div style="width: 200px">
+    <app-custom-button
+      name="Tìm kiếm giao dịch"
+      [selected]="true"
+    ></app-custom-button>
+  </div>
+  <h2 style="color: #009688">Thông tin giao dịch</h2>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px">
+    <app-custom-input
+      title="Số thẻ"
+      placeholder="940401xxxxxx001"
+      [disabled]="true"
+    ></app-custom-input>
+    <app-custom-input
+      title="TransID"
+      placeholder="2463574684678"
+      [disabled]="true"
+    ></app-custom-input>
+    <app-custom-input
+      title="Số chuẩn chỉ"
+      placeholder="055121"
+      [disabled]="true"
+    ></app-custom-input>
+    <app-custom-input
+      title="Ngày giao dịch"
+      placeholder="05/10/2024 15:33:18"
+      [disabled]="true"
+    ></app-custom-input>
+    <app-custom-input title="RRN" placeholder="2463574684678" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Số trace" placeholder="894478" [disabled]="true"></app-custom-input>
+    <app-custom-input title="SEQ HOST" placeholder="003829" [disabled]="true"></app-custom-input>
+    <app-custom-input title="SEQ ATM" placeholder="153318" [disabled]="true"></app-custom-input>
+    <app-custom-input title="ARN" placeholder="123456789012345678901234" [disabled]="true"></app-custom-input>
+    <div style="display: flex; align-items: flex-end; gap: 10px">
+      <div style="flex: 4">
+        <app-custom-input title="Số tiền giao dịch" placeholder="100.000.000" [disabled]="true"></app-custom-input>
+      </div>
+      <div style="flex: 1">
+        <app-custom-input placeholder="VND" [disabled]="true"></app-custom-input>
+      </div>
+    </div>
+    <app-custom-input title="Ngày quyết đoán" placeholder="15/10/2024 16:33:18" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Ngày hạch toán" placeholder="05/10/2024 15:33:18" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Loại giao dịch" placeholder="ATM" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Loại thẻ" placeholder="VISA" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Tổ chức phát hành thẻ" placeholder="Khác BIDV" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Tổ chức thanh toán thẻ" placeholder="BIDV" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Chi nhánh phát hành thẻ" placeholder="123000" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Chi nhánh thanh toán thẻ" placeholder="345000" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Chi nhánh tiếp quỹ" placeholder="123000" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Chi nhánh quản lý quỹ" placeholder="123000" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Mã thiết bị (POS/ATM)" placeholder="120601" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Đơn vị chấp nhận thẻ" placeholder="055121 - WINMART" [disabled]="true"></app-custom-input>
+    <app-custom-input title="CardID thẻ BIDV" placeholder="123456789" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Số tài khoản" placeholder="21200022" [disabled]="true"></app-custom-input>
+    <app-custom-input title="CIF - Tên chủ thẻ" placeholder="1234 - NGUYEN VAN LINH" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Email chủ thẻ BIDV" [disabled]="true" placeholder="nvanlinh1406@gmail.com"></app-custom-input>
+    <app-custom-input title="Trạng thái quyết đoán" placeholder="Chưa quyết toán với Napas" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Trạng thái nhật ký TMS" placeholder="Thất bại" [disabled]="true"></app-custom-input>
+    <app-custom-input title="DocID FIN" placeholder="123456789" [disabled]="true"></app-custom-input>
+    <app-custom-input title="DocID Auth" placeholder="123456789" [disabled]="true"></app-custom-input>
+    <app-custom-input title="Trạng thái đối soát" placeholder="Có chênh lệnh, chưa có phiếu XL" [disabled]="true"></app-custom-input>
+  </div>
+  <hr style="margin: 30px 0px" />
+  <form action="" [formGroup]="createInspectForm">
+    <h2 style="color: #009688">Yêu cầu tra soát</h2>
+    <div
+      style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px"
+    >
+      <app-custom-input-select
+        title="Lý do tra soát"
+        [items]="itemsReasonForInspection"
+        [control]="createInspectForm.controls['reasonForInspection']"
+      ></app-custom-input-select>
+      <div style="display: flex; align-items: flex-end; gap: 10px">
+        <div style="flex: 3">
+          <app-custom-input title="Số tiền tra soát" placeholder="100.000.000"></app-custom-input>
+        </div>
+        <div style="flex: 1">
+          <app-custom-input-select
+            [items]="itemsMoney"
+            [control]="createInspectForm.controls['typeMoney']"
+          ></app-custom-input-select>
+        </div>
+      </div>
+      <app-custom-input-select
+        title="CN nhận yêu cầu"
+        [items]="itemsReceivingBranch"
+        [control]="createInspectForm.controls['receivingBranch']"
+      ></app-custom-input-select>
+      <app-custom-input title="Ghi chú yêu cầu" placeholder="KH VIP cần hỗ trợ trong ngày"></app-custom-input>
+      <app-custom-input title="Đối tượng tra soát" placeholder="Nội bộ XLCL" [disabled]="true"></app-custom-input>
+    </div>
+    <hr style="margin: 30px 0px" />
+    <div style="width: 100%">
+      <h3>Hồ sơ chứng từ liên quan</h3>
+      <div style="display: flex; gap: 50px; width: 100%">
+        <div style="flex: 1">
+          <app-custom-input
+            title="Hồ sơ chứng từ"
+            typeInput="file"
+          ></app-custom-input>
+        </div>
+        <div style="flex: 1">
+          <app-custom-input title="Mô tả"></app-custom-input>
+        </div>
+      </div>
+      <div style="width: 100px; margin: 20px 0px">
+        <app-custom-button name="Tải lên" [selected]="true"></app-custom-button>
+      </div>
+    </div>
+  </form>
+  <app-custom-table
+    [rowData]="rowDossier"
+    [colDefs]="colDossier"
+    [isPanigation]="false"
+  ></app-custom-table>
+  <div style="margin-top: 20px; display: flex; justify-content: space-between">
+    <app-custom-button name="Quay lại"></app-custom-button>
+    <div style="display: flex; gap: 10px">
+      <app-custom-button
+        name="Lưu thông tin"
+        [selected]="true"
+      ></app-custom-button>
+      <app-custom-button
+        name="Đẩy duyệt TS"
+        [selected]="true"
+      ></app-custom-button>
+    </div>
+  </div>
+</div>

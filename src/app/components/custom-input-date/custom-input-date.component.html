@@ -1,0 +1,22 @@
+<div>
+  <p>{{ title }}</p>
+  <div style="display: flex; border: 1px solid #0000001a; border-radius: 10px;" [ngClass]="{ 'input-error': control.invalid && control.touched }">
+    <div style="flex: 6;">
+      <tui-input-date
+        tuiTextfieldSize="s"
+        [formControl]="control"
+        class="custom-input-button"
+      >
+        dd/mm/yyyy
+      </tui-input-date>
+    </div>
+    <div style="background-color: #009688; flex: 1; display: flex; align-items: center; justify-content: center; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" [tuiTextfieldLabelOutside]="true">
+      <tui-icon icon="@tui.calendar-search"></tui-icon>
+    </div>
+  </div>
+  <div *ngIf="control?.invalid && (control?.dirty || control?.touched)">
+    <div *ngIf="control?.hasError('required')" style="color: red">
+      Trường {{ title }} không được để trống
+    </div>
+  </div>
+</div>

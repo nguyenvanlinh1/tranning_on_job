@@ -1,5 +1,5 @@
 .active {
-  background-color: #80cbc4 !important;
+  background-color: #E8F5E9 !important;
 }
 
 .btn-spec-left {
@@ -10,4 +10,8 @@
 .btn-spec-right {
   border-radius: 0 !important;
   border-top-right-radius: 10px !important;
+}
+
+.custom-icon-button::after{
+  background-color: #009688;
 }

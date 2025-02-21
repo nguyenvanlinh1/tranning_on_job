@@ -1,0 +1,31 @@
+<div>
+  <p>{{ title }}</p>
+  <div style="display: flex; border: 1px solid #0000001a; border-radius: 10px">
+    <div style="flex: 6">
+      <tui-select
+        tuiTextfieldSize="s"
+        class="tui-space_vertical-4"
+        [formControl]="control"
+        [tuiTextfieldLabelOutside]="true"
+      >
+        <tui-data-list-wrapper *tuiDataList [items]="itemNames" />
+        <tui-icon icon="@tui.arrow-down" />
+      </tui-select>
+    </div>
+    <div
+      style="
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <tui-icon icon="@tui.chevron-down"></tui-icon>
+    </div>
+  </div>
+  <div *ngIf="control?.invalid && (control?.dirty || control?.touched)">
+    <div *ngIf="control?.hasError('required')" style="color: red">
+      Trường {{ title }} không được để trống
+    </div>
+  </div>
+</div>

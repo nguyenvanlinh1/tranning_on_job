@@ -1,23 +1,53 @@
-<div style="width: 100%;">
+<div style="width: 100%">
   <p>{{ title }}</p>
-  <form [formGroup]="testForm">
-    <tui-input formControlName="testValue" style="width: 100%;">
-      <ng-container *ngIf="typeInput !== 'file'">
-        <input
-          tuiTextfieldLegacy
-          [type]="typeInput"
-          style="width: 100%; box-sizing: border-box; padding: 3px; border-radius: 5px;"
-        />
-      </ng-container>
-      <ng-container *ngIf="typeInput === 'file'">
-        <div
-          style="cursor: pointer; margin-bottom: 10px; padding: 2px; border-radius: 5px; border: 1px solid #000; width: 100%; background-color: #fff;"
-          (click)="openFileDialog()"
-        >
-          Chọn tệp
-        </div>
-        <input #fileInput tuiTextfieldLegacy type="file" id="file" hidden />
-      </ng-container>
-    </tui-input>
-  </form>
+  <tui-input
+    *ngIf="typeInput !== 'file'"
+    [formControl]="control"
+    style="width: 100%"
+    tuiTextfieldSize="s"
+    [tuiTextfieldCleaner]="true"
+    [readOnly]="disabled"
+    [style.pointer-events]="disabled ? 'none' : 'auto'"
+    [style.opacity]="disabled ? '0.8' : '1'"
+    [style.background]="disabled ? '#e0e0e0' : 'white'"
+  >
+    {{ placeholder }}
+    <input
+      class="form-control"
+      tuiTextfieldLegacy
+      [type]="typeInput"
+      [formControl]="control"
+      style="
+        width: 100%;
+        box-sizing: border-box;
+        padding: 3px;
+        border-radius: 5px;
+      "
+    />
+  </tui-input>
+
+  <div *ngIf="typeInput === 'file'">
+    <div
+      style="
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 10px;
+        border: 1px solid #0000001a;
+        width: 100%;
+        background-color: #f9f9f9;
+        display: inline-block;
+      "
+      (click)="triggerFileInput()"
+    >
+      Chọn tệp
+    </div>
+    <input #fileInput type="file" hidden (change)="onFileSelected($event)" />
+    <p *ngIf="selectedFile" style="color: green">{{ selectedFile.name }}</p>
+  </div>
+
+  <div *ngIf="control?.invalid && (control?.dirty || control?.touched)">
+    <div *ngIf="control?.hasError('required')" style="color: red">
+      Trường {{ title }} không được để trống
+    </div>
+  </div>
 </div>

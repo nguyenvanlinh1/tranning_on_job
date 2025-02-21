@@ -1,0 +1,8 @@
+::ng-deep [tuiAppearance][data-appearance="textfield"] {
+  --t-shadow: none !important;
+}
+
+/* :host ::ng-deep [tuiWrapper][data-appearance="textfield"]::after {
+  border: none !important;
+} */
+  

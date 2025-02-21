@@ -1,0 +1,106 @@
+<div style="padding: 10px 50px; border-radius: 20px; background-color: #fff">
+  <h2 style="color: #000; border-bottom: 1px solid #e0e0e0; padding: 10px">
+    Xử lý chênh lệch đối soát tại MGDTD
+  </h2>
+  <form action="" [formGroup]="useForm">
+    <div
+      style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px"
+    >
+      <app-custom-input-date
+        title="Từ ngày giao dịch"
+        name="fromTransactionDate"
+        [control]="useForm.controls['fromTransactionDate']"
+      ></app-custom-input-date>
+      <app-custom-input-date
+        title="Đến ngày giao dịch"
+        name="toTransactionDate"
+        [control]="useForm.controls['toTransactionDate']"
+      ></app-custom-input-date>
+      <app-custom-input
+        title="TransId"
+        name="transID"
+        [control]="useForm.controls['transId']"
+      ></app-custom-input>
+      <app-custom-input
+        title="Mã tra soát"
+        name="inspectID"
+        [control]="useForm.controls['idCheck']"
+      ></app-custom-input>
+      <app-custom-input-select
+        title="Trạng thái tra soát"
+        name="inspectStatus"
+        [control]="useForm.controls['status']"
+        [items]="items"
+      ></app-custom-input-select>
+      <app-custom-input
+        title="Số thẻ"
+        placeholder="Định dạng 94040101xxxxxx0001"
+        name="cardNumber"
+        [control]="useForm.controls['card_number']"
+      ></app-custom-input>
+      <app-custom-input
+        title="Số chuẩn chỉ"
+        name="standardNumber"
+        [control]="useForm.controls['standard_number']"
+      ></app-custom-input>
+      <app-custom-input-select
+        title="Chi nhánh nhận yêu cầu"
+        name="branchReceiving"
+        [control]="useForm.controls['cn_received']"
+        [items]="items2"
+      ></app-custom-input-select>
+      <app-custom-input-select
+        title="Mã thiết bị"
+        name="deviceID"
+        [control]="useForm.controls['idDevice']"
+        [items]="items3"
+      ></app-custom-input-select>
+      <app-custom-input
+        title="Số trace"
+        name="traceID"
+        [control]="useForm.controls['idTrace']"
+      ></app-custom-input>
+      <app-custom-input
+        title="Số phiếu xử lý"
+        name="ticketID"
+        [control]="useForm.controls['idTicket']"
+      ></app-custom-input>
+    </div>
+  </form>
+  <div style="display: flex; justify-content: space-between; margin:48px 0 18px 24px;">
+    <div style="display: flex; gap: 50px">
+      <app-custom-button name="Tìm kiếm" [selected]="true" (clicked)="onSearch()"></app-custom-button>
+      <app-custom-button name="Export" [selected]="true" (clicked)="onExport()"></app-custom-button>
+      <app-custom-button name="Lưu thông tin" [selected]="true" (clicked)="onClick()"></app-custom-button>
+    </div>
+    <div style="display: flex; gap: 50px">
+      <app-custom-button
+        name="Tạo tra soát"
+        icon="@tui.plus"
+        (clicked)="onNavigate()"
+        [selected]="true"
+      ></app-custom-button>
+      <app-custom-button
+        name="Tạo lỗ tra soát"
+        icon="@tui.plus"
+        [selected]="true"
+      ></app-custom-button>
+    </div>
+  </div>
+  <app-custom-table
+    [rowData]="rowData"
+    [colDefs]="colDefs"
+    [isPanigation]="true"
+  ></app-custom-table>
+  <div style="display: flex; justify-content: space-between; margin-top: 48px">
+    <div style="display: flex; gap: 10px">
+      <app-custom-button name="Từ chối duyệt TS theo lô"></app-custom-button>
+      <app-custom-button name="Bình luận"></app-custom-button>
+      <app-custom-button name="In Đề nghị xử lý GD"></app-custom-button>
+    </div>
+    <div style="display: flex; gap: 10px">
+      <app-custom-button name="Đẩy duyệt TS theo lô" [selected]="true"></app-custom-button>
+      <app-custom-button name="Duyệt TS theo lô" [selected]="true"></app-custom-button>
+    </div>
+  </div>
+</div>

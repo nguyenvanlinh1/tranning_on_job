@@ -1,13 +1,23 @@
-<input *ngIf="canInput" #fileInput type="file" hidden (change)="onFileSelected($event)" multiple>
 <button
   size="s"
   type="button"
-  style="color: #009688; font-weight: 600; border: 1px solid #009688; width: 100%; border-radius: 10px; height: 32px; cursor: pointer;"
-  [ngClass]="{ 'active': selected, 'btn-spec-left': isBtnSpecLeft, 'btn-spec-right': isBtnSpecRight }"
-  (click)="openFileDialog()"
+  style="
+    color: #009688;
+    font-weight: 600;
+    border: 1px solid #009688;
+    background-color: transparent;
+    width: 100%;
+    border-radius: 10px;
+    height: 32px;
+    cursor: pointer;
+  "
+  [ngClass]="{
+    active: selected,
+    'btn-spec-left': isBtnSpecLeft,
+    'btn-spec-right': isBtnSpecRight
+  }"
+  (click)="onClick()"
 >
-  <ng-template>
-    <tui-icon icon={{icon}} [style.height.px]="32" />
-  </ng-template>
+  <tui-icon *ngIf="icon" icon={{icon}} class="custom-icon-button"></tui-icon>
   {{ name }}
 </button>

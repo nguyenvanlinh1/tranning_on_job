@@ -1,27 +1,54 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { TuiHint, TuiTextfield } from '@taiga-ui/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { TuiInputModule, TuiTextfieldControllerModule } from '@taiga-ui/legacy';
 
 @Component({
   selector: 'app-custom-input',
   templateUrl: './custom-input.component.html',
   styleUrls: ['./custom-input.component.css'],
-  imports: [TuiHint, TuiTextfield, ReactiveFormsModule, NgIf],
+  imports: [
+    TuiHint,
+    TuiTextfield,
+    TuiInputModule,
+    TuiTextfieldControllerModule,
+    ReactiveFormsModule,
+    NgIf
+  ],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CustomInputComponent {
-  protected readonly testForm = new FormGroup({
-    testValue: new FormControl('mail@mail.ru'),
-  });
+export class CustomInputComponent{
+  
+  @Input() title: string = '';
+  @Input() placeholder: string = '';
+  @Input() typeInput: string = 'text';
+  @Input() control!: FormControl;
+  @Input() disabled: boolean = false
+  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
+  
+  selectedFile: File | null = null;
 
-  @ViewChild("fileInput") fileInput!: ElementRef
+  triggerFileInput() {
+    if (this.fileInput) {
+      this.fileInput.nativeElement.click();
+    }
+  }
 
-  @Input() title!: string
-  @Input() typeInput: string = "text"
-
-  openFileDialog() {
-    this.fileInput.nativeElement.click();
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+    }
   }
 }

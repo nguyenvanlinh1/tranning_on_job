@@ -1,0 +1,4 @@
+:host ::ng-deep [tuiWrapper][data-appearance="textfield"]::after {
+  border: none !important;
+}
+

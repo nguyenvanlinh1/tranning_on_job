@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { themeQuartz, type ColDef } from 'ag-grid-community';
+import { DomLayoutType, themeQuartz, type ColDef } from 'ag-grid-community';
 import {
   CustomPaginationComponent,
   Size,
@@ -26,6 +26,12 @@ export class CustomTableComponent {
   theme = myTheme;
   pagination: boolean = true;
   paginationPageSize: number = DEFAULT_PAGE_SIZE;
+
+  gridOptions = {
+    suppressHorizontalScroll: false, // Đảm bảo có thể cuộn ngang
+    domLayout: 'autoHeight' as DomLayoutType,
+  };
+  
   @ViewChild(AgGridAngular, {static: false}) agGrid!: AgGridAngular;
 
   defaultColDef: ColDef = {

@@ -1,32 +1,37 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { provideRouter, RouterModule, Routes, withComponentInputBinding } from '@angular/router';
 import { ExportProcessComponent } from './pages/export-process/export-process.component';
 import { HomeComponent } from './pages/home/home.component';
+import { DifferenceProcessComponent } from './pages/difference-process/difference-process.component';
+import { NewInspectComponent } from './pages/new-inspect/new-inspect.component';
 
 const routes: Routes = [
   // {
   //   path: '', component: AppComponent, pathMatch: 'full'
   // },
   {
-    path: '', component: HomeComponent
+    path: '', component: HomeComponent, title: "Trang chủ"
   },
-  // {
-  //   path: 'table', component: CustomTableComponent
-  // },
-  // {
-  //   path: 'menu', component: CustomMenuComponent
-  // },
+  {
+    path: 'difference', component: DifferenceProcessComponent, title: "Chênh lệch đối soát"
+  },
+  {
+    path: 'inspect', component: NewInspectComponent
+  },
   // {
   //   path: 'tabs', component: CustomTabsComponent
   // },
   {
-    path: "export", component: ExportProcessComponent
+    path: "export", component: ExportProcessComponent, title: "Màn Hình xuất hóa đơn"
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    provideRouter(routes, withComponentInputBinding())
+  ]
 })
 export class AppRoutingModule {
 }
