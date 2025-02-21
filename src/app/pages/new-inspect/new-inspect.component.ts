@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { ColDef } from 'ag-grid-community';
 import { firstValueFrom, forkJoin, lastValueFrom } from 'rxjs';
@@ -20,7 +21,7 @@ export class NewInspectComponent {
   itemsReceivingBranch!: IInspectData[]
   inspectService = inject(InspectService)
 
-  constructor(private cdr: ChangeDetectorRef){}
+  constructor(private cdr: ChangeDetectorRef, private route: Router){}
 
   query = injectQuery(() => ({
     queryKey: ['reason-for-inspection', 'money', 'receive-branch'],
@@ -96,4 +97,8 @@ export class NewInspectComponent {
       flex: 1
     },
   ];
+
+  onReturn() {
+    this.route.navigate(['/difference'])
+  }
 }

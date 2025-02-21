@@ -28,7 +28,7 @@ export class DifferenceProcessComponent implements OnInit{
   inspectService = inject(InspectService)
 
   query = injectQuery(() => ({
-    queryKey: ['inspect', 'receive_branch'],
+    queryKey: ['listInspect', 'receiveBranch', 'listDevice', 'allTransactions'],
     queryFn: async () => {
       const {data, data2, data3, dataTable}= await firstValueFrom(
         forkJoin({
