@@ -7,7 +7,7 @@ export interface IDifferenceData {
     idCheck: string,
     card_number: string,
     transId: string,
-    transaction_date: string,
+    fromTransactionDate: string,
     idTrace: string,
     transaction_amount: number,
     currency: string,

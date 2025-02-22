@@ -51,6 +51,7 @@ ModuleRegistry.registerModules([AllCommunityModule]);
   ],
   imports: [BrowserModule, AppRoutingModule, TuiRoot, TuiIcon, TuiPagination, BrowserAnimationsModule, CustomTabsComponent, CustomTableComponent, CustomMenuComponent, TuiButton, CustomInputComponent, CustomButtonComponent, CustomInputDateComponent, CustomSelectComponent, CustomSelectComponent, CustomInputSelectComponent, ReactiveFormsModule, HttpClientModule],
   providers: [
+    FormatDatePipe,
     provideTanStackQuery(new QueryClient())
   ],
   bootstrap: [AppComponent],

@@ -7,7 +7,6 @@ import {
   TuiSelectModule,
   TuiTextfieldControllerModule,
 } from '@taiga-ui/legacy';
-import { IDeviceData } from 'src/app/types/DataDevice';
 import { IInspectData } from 'src/app/types/DataInspect';
 
 @Component({

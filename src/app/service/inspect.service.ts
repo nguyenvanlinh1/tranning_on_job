@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IInspectData } from '../types/DataInspect';
 import { IReceiveBranch } from '../types/DataReceiveBranch';
-import { IDeviceData } from '../types/DataDevice';
 import { ITransactionData } from '../types/DataTransaction';
 import { IDifferenceData } from '../types/DataDifferenceProcess';
 

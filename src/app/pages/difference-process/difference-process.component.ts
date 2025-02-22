@@ -12,81 +12,92 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import { IInspectData } from 'src/app/types/DataInspect';
 import { firstValueFrom, forkJoin, lastValueFrom } from 'rxjs';
 import { IReceiveBranch } from 'src/app/types/DataReceiveBranch';
-import { IDeviceData } from 'src/app/types/DataDevice';
+import { FormatDatePipe } from 'src/app/components/pipe/format-date.pipe';
 
 @Component({
   selector: 'app-difference-process',
   templateUrl: './difference-process.component.html',
   styleUrls: ['./difference-process.component.css'],
 })
-export class DifferenceProcessComponent implements OnInit{
-
+export class DifferenceProcessComponent implements OnInit {
   rowData!: IDifferenceData[];
-  items!: IInspectData[]
-  items2!: IReceiveBranch[]
-  items3!: IDeviceData[]
-  inspectService = inject(InspectService)
+  items!: IInspectData[];
+  items2!: IReceiveBranch[];
+  items3!: IInspectData[];
+  inspectService = inject(InspectService);
 
   query = injectQuery(() => ({
     queryKey: ['listInspect', 'receiveBranch', 'listDevice', 'allTransactions'],
     queryFn: async () => {
-      const {data, data2, data3, dataTable}= await firstValueFrom(
+      const { data, data2, data3, dataTable } = await firstValueFrom(
         forkJoin({
           data: this.inspectService.getListInspect(),
           data2: this.inspectService.getReceiveBranch(),
           data3: this.inspectService.getListDevice(),
-          dataTable: this.inspectService.getAllDataTransaction()
+          dataTable: this.inspectService.getAllDataTransaction(),
         })
-      )
-      if(data){
-        this.items = Array.isArray(data) ? data : [data]; 
+      );
+      if (data) {
+        this.items = Array.isArray(data) ? data : [data];
         this.useForm.patchValue({
           status: this.items[0]?.name || '',
         });
       }
-      if(data2){
-        this.items2 = Array.isArray(data2) ? data2 : [data2]; 
+      if (data2) {
+        this.items2 = Array.isArray(data2) ? data2 : [data2];
         this.useForm.patchValue({
           cn_received: this.items2[0]?.name || '',
         });
       }
-      if(data3){
+      if (data3) {
         this.items3 = Array.isArray(data3) ? data3 : [data3];
         this.useForm.patchValue({
-          idDevice: this.items3[0]?.name || ''
-        })
+          idDevice: this.items3[0]?.name || '',
+        });
       }
-      if(dataTable){
-        this.rowData = Array.isArray(dataTable) ? dataTable: [dataTable]
+      if (dataTable) {
+        this.rowData = Array.isArray(dataTable) ? dataTable : [dataTable];
       }
     },
   }));
 
-  constructor(private route: Router){}
+  constructor(private route: Router, private formatDate: FormatDatePipe) {}
 
   ngOnInit(): void {
     // this.items.push(this.query.data)
   }
 
-
+  // useForm = new FormGroup({
+  //   fromTransactionDate: new FormControl<TuiDay | null>(
+  //     null,
+  //     Validators.required
+  //   ),
+  //   toTransactionDate: new FormControl<TuiDay | null>(
+  //     null,
+  //     Validators.required
+  //   ),
+  //   transId: new FormControl('', Validators.required),
+  //   idCheck: new FormControl('', Validators.required),
+  //   status: new FormControl('', Validators.required),
+  //   card_number: new FormControl('', Validators.required),
+  //   standard_number: new FormControl('', Validators.required),
+  //   cn_received: new FormControl('', Validators.required),
+  //   idDevice: new FormControl('', Validators.required),
+  //   idTrace: new FormControl('', Validators.required),
+  //   idTicket: new FormControl('', Validators.required),
+  // });
   useForm = new FormGroup({
-    fromTransactionDate: new FormControl<string>(
-      '',
-      Validators.required
-    ),
-    toTransactionDate: new FormControl<string>(
-      '',
-      Validators.required
-    ),
-    transId: new FormControl('', Validators.required),
-    idCheck: new FormControl('', Validators.required),
-    status: new FormControl('', Validators.required),
-    card_number: new FormControl('', Validators.required),
-    standard_number: new FormControl('', Validators.required),
-    cn_received: new FormControl('', Validators.required),
-    idDevice: new FormControl('', Validators.required),
-    idTrace: new FormControl('', Validators.required),
-    idTicket: new FormControl('', Validators.required),
+    fromTransactionDate: new FormControl<TuiDay | null>(null),
+    toTransactionDate: new FormControl<TuiDay | null>(null),
+    transId: new FormControl(''),
+    idCheck: new FormControl(''),
+    status: new FormControl(''),
+    card_number: new FormControl(''),
+    standard_number: new FormControl(''),
+    cn_received: new FormControl(''),
+    idDevice: new FormControl(''),
+    idTrace: new FormControl(''),
+    idTicket: new FormControl(''),
   });
 
   colDefs: ColDef[] = [
@@ -108,7 +119,7 @@ export class DifferenceProcessComponent implements OnInit{
     { field: 'idCheck', headerName: 'Mã tra soát' },
     { field: 'card_number', headerName: 'Số thẻ' },
     { field: 'transId', headerName: 'TransID' },
-    { field: 'transaction_date', headerName: 'Ngày giao dịch' },
+    { field: 'fromTransactionDate', headerName: 'Ngày giao dịch' },
     { field: 'idTrace', headerName: 'Số trace' },
     { field: 'transaction_amount', headerName: 'Số tiền giao dịch' },
     { field: 'currency', headerName: 'Loại tiền' },
@@ -134,9 +145,12 @@ export class DifferenceProcessComponent implements OnInit{
     //   return;
     // }
     const data: ITransactionData = {
-      fromTransactionDate:
-        this.useForm.get('fromTransactionDate')?.value ?? '',
-      toTransactionDate: this.useForm.get('toTransactionDate')?.value ?? '',
+      fromTransactionDate: this.formatDate.transform(
+        this.useForm.get('fromTransactionDate')?.value || null
+      ),
+      toTransactionDate: this.formatDate.transform(
+        this.useForm.get('toTransactionDate')?.value || null
+      ),
       transId: this.useForm.get('transId')?.value ?? '',
       idCheck: this.useForm.get('idCheck')?.value ?? '',
       status: this.useForm.get('status')?.value ?? '',
@@ -152,7 +166,7 @@ export class DifferenceProcessComponent implements OnInit{
   }
 
   onNavigate() {
-    this.route.navigate(["/inspect"])
+    this.route.navigate(['/inspect']);
   }
 
   onExport() {
@@ -170,7 +184,7 @@ export class DifferenceProcessComponent implements OnInit{
         `${item.idCheck.padEnd(15)} | ` +
         `${item.card_number.padEnd(18)} | ` +
         `${item.transId.padEnd(12)} | ` +
-        `${item.transaction_date.padEnd(10)} | ` +
+        `${item.fromTransactionDate.padEnd(10)} | ` +
         `${item.idTrace.padEnd(9)} | ` +
         `${item.transaction_amount.toString().padEnd(18)} | ` +
         `${item.currency.padEnd(6)} | ` +
@@ -188,9 +202,14 @@ export class DifferenceProcessComponent implements OnInit{
 
   onSearch() {
     const rawFormData = this.useForm.value;
+
     const formData: ITransactionData = {
-      fromTransactionDate: rawFormData.fromTransactionDate ?? '',
-      toTransactionDate: rawFormData.toTransactionDate ?? '',
+      fromTransactionDate: this.formatDate.transform(
+        rawFormData.fromTransactionDate || null
+      ),
+      toTransactionDate: this.formatDate.transform(
+        rawFormData.toTransactionDate || null
+      ),
       transId: rawFormData.transId ?? '',
       idCheck: rawFormData.idCheck ?? '',
       status: '',
@@ -199,15 +218,14 @@ export class DifferenceProcessComponent implements OnInit{
       cn_received: '',
       idDevice: '',
       idTrace: rawFormData.idTrace ?? '',
-      idTicket: rawFormData.idTicket ?? ''
+      idTicket: rawFormData.idTicket ?? '',
     };
-  
-    this.inspectService.getDataTransactionbyOption(formData).subscribe((data) => {
-      console.log(data)
-      this.rowData = data
-      console.log("Data:", this.rowData)
-    });
+
+    this.inspectService
+      .getDataTransactionbyOption(formData)
+      .subscribe((data) => {
+        console.log('Response Data:', data);
+        this.rowData = data;
+      });
   }
-  
-  
 }

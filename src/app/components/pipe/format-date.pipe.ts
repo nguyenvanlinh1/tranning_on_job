@@ -1,12 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { TuiDay } from '@taiga-ui/cdk';
 
 @Pipe({
-  name: 'formatDate'
+  name: 'formatDate',
 })
 export class FormatDatePipe implements PipeTransform {
-
-  transform(value: string): string {
-    return value.charAt(0).toUpperCase() + "ok"
+  transform(date: TuiDay | null): string {
+    return date ? `${date.day}/${date.month + 1}/${date.year}` : '';
   }
-
 }

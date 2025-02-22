@@ -1,5 +1,3 @@
-import { TuiDay } from "@taiga-ui/cdk";
-
 export interface ITransactionData {
   fromTransactionDate: string;
   toTransactionDate: string;
