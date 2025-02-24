@@ -38,5 +38,6 @@ export class CustomInputSelectComponent implements OnChanges {
     if (!this.control.value && this.items?.length) {
       this.control.setValue(this.items[0].name, { emitEvent: false });
     }
+    console.log(this.control.value)
   }
 }

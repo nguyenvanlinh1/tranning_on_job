@@ -30,6 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CustomButtonInputComponent } from './components/custom-button-input/custom-button-input.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
+import { ConvertToSlugPipe } from './components/pipe/convert-to-slug.pipe';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -48,10 +50,13 @@ ModuleRegistry.registerModules([AllCommunityModule]);
     DifferenceProcessComponent,
     NewInspectComponent,
     CustomButtonInputComponent,
+    ConvertToSlugPipe,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, TuiRoot, TuiIcon, TuiPagination, BrowserAnimationsModule, CustomTabsComponent, CustomTableComponent, CustomMenuComponent, TuiButton, CustomInputComponent, CustomButtonComponent, CustomInputDateComponent, CustomSelectComponent, CustomSelectComponent, CustomInputSelectComponent, ReactiveFormsModule, HttpClientModule],
   providers: [
     FormatDatePipe,
+    ConvertToSlugPipe,
     provideTanStackQuery(new QueryClient())
   ],
   bootstrap: [AppComponent],

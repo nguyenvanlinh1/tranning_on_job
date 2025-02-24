@@ -58,6 +58,7 @@ export class DifferenceProcessComponent implements OnInit {
       if (dataTable) {
         this.rowData = Array.isArray(dataTable) ? dataTable : [dataTable];
       }
+      return {data, data2, data3, dataTable}
     },
   }));
 
@@ -161,12 +162,11 @@ export class DifferenceProcessComponent implements OnInit {
       idTrace: this.useForm.get('idTrace')?.value ?? '',
       idTicket: this.useForm.get('idTicket')?.value ?? '',
     };
-
-    console.log(data);
   }
 
   onNavigate() {
-    this.route.navigate(['/inspect']);
+    const curUrl = this.route.url
+    this.route.navigate([`${curUrl}/create`]);
   }
 
   onExport() {
@@ -212,11 +212,11 @@ export class DifferenceProcessComponent implements OnInit {
       ),
       transId: rawFormData.transId ?? '',
       idCheck: rawFormData.idCheck ?? '',
-      status: '',
+      status: rawFormData.status || 'Tất cả trạng thái',
       card_number: rawFormData.card_number ?? '',
       standard_number: rawFormData.standard_number ?? '',
-      cn_received: '',
-      idDevice: '',
+      cn_received: rawFormData.cn_received || 'Tất cả chi nhánh',
+      idDevice: rawFormData.idDevice || 'Tất cả thiết bị',
       idTrace: rawFormData.idTrace ?? '',
       idTicket: rawFormData.idTicket ?? '',
     };
@@ -224,8 +224,9 @@ export class DifferenceProcessComponent implements OnInit {
     this.inspectService
       .getDataTransactionbyOption(formData)
       .subscribe((data) => {
-        console.log('Response Data:', data);
+        console.log(data)
         this.rowData = data;
       });
+
   }
 }

@@ -251,11 +251,11 @@
     }
   ],
   "money": [
-    {"id": 1, "name": "VND"},
-    {"id": 2, "name": "USD"},
-    {"id": 3, "name": "EUR"},
-    {"id": 4, "name": "GBP"},
-    {"id": 5, "name": "JPY"}
+    { "id": 1, "name": "VND" },
+    { "id": 2, "name": "USD" },
+    { "id": 3, "name": "EUR" },
+    { "id": 4, "name": "GBP" },
+    { "id": 5, "name": "JPY" }
   ],
   "reasonForInspection": [
     { "id": 1, "name": "101: Giao dịch không thành công" },
@@ -272,5 +272,116 @@
     { "id": 4, "name": "12003: Chi nhánh Đà Nẵng" },
     { "id": 5, "name": "12004: Chi nhánh Hải Phòng" },
     { "id": 6, "name": "12005: Chi nhánh Cần Thơ" }
+  ],
+  "category": [
+    {
+      "firstMenu": [
+        {
+          "secondMenuName": "Trang chủ"
+        }
+      ],
+      "firstMenuName": "Trả góp",
+      "icon": "@tui.circle-dollar-sign"
+    },
+    {
+      "firstMenu": [
+        {
+          "secondMenu": []
+        }
+      ],
+      "firstMenuName": "Phát Hành Thẻ",
+      "icon": "@tui.building-2"
+    },
+    {
+      "firstMenu": [
+        {
+          "secondMenu": [{ "thirdMenuName": "Email đầu mối tr soát NHPHT" }],
+          "secondMenuName": "Danh mục"
+        },
+        {
+          "secondMenu": [
+            {
+              "thirdMenuName": "Gửi khiếu nại"
+            },
+            {
+              "thirdMenuName": "Nhập khiếu nại"
+            },
+            {
+              "thirdMenu": [
+                {
+                  "fourthMenuName": "Chênh lệch MGDTD"
+                },
+                {
+                  "fourthMenuName": "Chênh lệch DVCNT"
+                },
+                {
+                  "fourthMenuName": "Chênh lệch Chủ thẻ"
+                }
+              ],
+              "thirdMenuName": "Xử lý chênh lệch đối soát"
+            }
+          ],
+          "secondMenuName": "Chi nhánh"
+        },
+        {
+          "secondMenu": [{ "thirdMenuName": "Email đầu mối tr soát NHPHT" }],
+          "secondMenuName": "Danh mục"
+        },
+        {
+          "secondMenu": [
+            { "thirdMenuName": "Xử lý chênh lệch đối soát" },
+            { "thirdMenuName": "Tra soát khiếu nại" }
+          ],
+          "secondMenuName": "Trung tâm thẻ"
+        },
+        {
+          "secondMenu": [
+            {
+              "thirdMenuName": "Nhận từ chủ thẻ"
+            },
+            {
+              "thirdMenuName": "Nhận offline từ NHTT"
+            }
+          ],
+          "secondMenuName": "Tra soát khiếu nại chủ thẻ BIDV"
+        },
+        {
+          "secondMenuName": "Vấn tin tra soát khiếu nại"
+        },
+        {
+          "secondMenuName": "Báo cáo tra soát khiếu nại"
+        }
+      ],
+      "firstMenuName": "Tra Soát Khiếu Nại",
+      "icon": "@tui.trello"
+    },
+    {
+      "firstMenuName": "Đối Soát",
+      "icon": "@tui.arrow-up-narrow-wide"
+    },
+    {
+      "firstMenuName": "Sao Kê",
+      "icon": "@tui.heart"
+    },
+    {
+      "firstMenuName": "Thu Nợ TTD",
+      "icon": "@tui.codesandbox"
+    },
+    {
+      "firstMenuName": "ATM",
+      "icon": "@tui.twitter"
+    },
+    {
+      "firstMenuName": "Tham Số PQS",
+      "icon": "@tui.chart-pie"
+    },
+    {
+      "firstMenuName": "Phân Bố Phí",
+      "icon": "@tui.pencil-ruler"
+    },
+    {
+      "firstMenuName": "Quản Trị",
+      "icon": "@tui.qr-code"
+    }
   ]
 }

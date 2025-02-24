@@ -22,9 +22,6 @@ import {
   styleUrls: ['./custom-input-date.component.css'],
 })
 export class CustomInputDateComponent{
-  ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
-  }
   
   @Input() name!: string
   @Input() control!: FormControl

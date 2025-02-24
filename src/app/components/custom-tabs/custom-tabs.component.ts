@@ -1,16 +1,28 @@
 import { NgFor } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { TuiIcon } from '@taiga-ui/core';
-import { ITabsData } from 'src/app/types/DataTabs';
+import { Category } from 'src/app/types/DataCategory';
 
 @Component({
   selector: 'app-custom-tabs',
   templateUrl: './custom-tabs.component.html',
   styleUrls: ['./custom-tabs.component.css'],
   imports: [NgFor, TuiIcon],
-  standalone: true
+  standalone: true,
 })
 export class CustomTabsComponent {
-  @Input() tabsData! : ITabsData[];
-  items = ['Edit', 'Download', 'Rename', 'Delete', 'Edit1', 'Download1', 'Rename1', 'Delete1'];
+  @Input() tabsData!: Category[]
+  @Output() clicked = new EventEmitter();
+
+  onClick(menu : string){
+    this.clicked.emit(menu)
+  }
 }

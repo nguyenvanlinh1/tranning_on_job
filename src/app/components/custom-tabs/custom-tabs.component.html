@@ -1,11 +1,10 @@
 <nav tuiTabs vertical="left" class="left" *ngFor="let item of tabsData">
-  <!-- <app-custom-button name="ok"></app-custom-button> -->
-  <button class="custom-button">
+  <button class="custom-button" (click)="onClick(item.firstMenuName)">
     <tui-icon
-      [icon]="item.iconTab"
+      [icon]="item?.icon || ''"
       [style.color]="'#fff'"
       style="font-size: 30px"
     />
-    <p>{{ item.tabName }}</p>
+    <p>{{ item?.firstMenuName }}</p>
   </button>
 </nav>

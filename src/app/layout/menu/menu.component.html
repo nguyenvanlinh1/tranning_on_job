@@ -1,8 +1,7 @@
 <div style="background-color: #e8eaf6">
-  <div *ngFor="let item of menuData">
+  <!-- <div *ngFor="let item of sub"> -->
     <app-custom-menu
-      [title]="item.title"
-      [dataMenu]="item.listSubTitle ?? []"
+      [dataMenu]="sub"
     ></app-custom-menu>
-  </div>
+  <!-- </div> -->
 </div>

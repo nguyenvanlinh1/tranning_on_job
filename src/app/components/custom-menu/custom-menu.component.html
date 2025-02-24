@@ -1,33 +1,56 @@
-<tui-accordion class="custom-menu">
-  <tui-accordion-item class="custom-menu-item">
-    {{ title }}
-    <tui-icon
-      icon="@tui.chevron-down"
-      class="custom-chevron"
-      [style.visibility]="
-        dataMenu && dataMenu.length > 0 ? 'visible' : 'hidden'
-      "
-      ></tui-icon
-    >
-    <ng-template
-      tuiAccordionItemContent
-      *ngIf="dataMenu && dataMenu.length > 0"
-    >
-      <div *ngFor="let item of dataMenu">
-        <button
-          class="custom-button"
-          style="
-            border: none;
-            background-color: #e8eaf6;
-            width: 100%;
-            text-align: start;
-            padding: 6px;
-          "
-          (click)="handleClick()"
-        >
-          {{ item }}
-        </button>
-      </div>
-    </ng-template>
-  </tui-accordion-item>
-</tui-accordion>
+<div *ngFor="let item of dataMenu">
+  <tui-accordion class="custom-menu">
+    <tui-accordion-item class="custom-menu-item">
+      {{ item.secondMenuName }}
+      <tui-icon
+        icon="@tui.chevron-down"
+        class="custom-chevron"
+        [style.visibility]="item && item?.secondMenu ? 'visible' : 'hidden'"
+      ></tui-icon>
+      <ng-template tuiAccordionItemContent *ngIf="item?.secondMenu">
+        <div *ngFor="let secondItem of item.secondMenu">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button
+              class="custom-button"
+              style="
+                border: none;
+                background-color: #e8eaf6;
+                width: 100%;
+                text-align: start;
+                padding: 6px;
+              "
+              (click)="handleClick(secondItem.thirdMenuName)"
+            >
+              {{ secondItem.thirdMenuName }}
+            </button>
+            <tui-icon
+              icon="@tui.chevron-down"
+              class="custom-chevron"
+              [style.visibility]="
+                secondItem && secondItem?.thirdMenu ? 'visible' : 'hidden'
+              "
+            ></tui-icon>
+          </div>
+          <div *ngIf="secondItem.thirdMenu">
+            <div *ngFor="let fourthItem of secondItem.thirdMenu">
+              <button
+                class="custom-button"
+                style="
+                  border: none;
+                  background-color: #e8eaf6;
+                  width: 100%;
+                  text-align: start;
+                  padding: 6px;
+                  margin-left: 20px;
+                "
+                (click)="handleClick(fourthItem.fourthMenuName)"
+              >
+                {{ fourthItem.fourthMenuName }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </tui-accordion-item>
+  </tui-accordion>
+</div>
