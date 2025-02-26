@@ -47,8 +47,10 @@ export class NewInspectComponent {
 
   createInspectForm = new FormGroup({
     reasonForInspection: new FormControl('', Validators.required),
+    disputedAmount: new FormControl('', Validators.required),
     typeMoney: new FormControl('', Validators.required),
-    receivingBranch: new FormControl('', Validators.required)
+    receivingBranch: new FormControl('', Validators.required),
+    disputeNote: new FormControl('', Validators.required)
   })
 
   rowDossier: IDossierData[] = [
@@ -100,5 +102,9 @@ export class NewInspectComponent {
 
   onReturn() {
     this.route.navigate(['/difference'])
+  }
+
+  onSaveData() {
+    console.log(this.createInspectForm.value)
   }
 }
